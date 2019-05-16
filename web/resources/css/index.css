@@ -1,0 +1,54 @@
+#home-background{
+    background-attachment: fixed;
+    background-image: url("../images/test.jpg");
+    background-position: bottom; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+    height: 500px;
+    border-radius: 0px;
+    
+
+}
+
+#home-background>div>h1{
+    padding-top: 105px;
+    color: white;
+    text-shadow: rgba(0,0,0,0.6) 5px 5px 3px;
+    
+}
+
+
+#home-background>div>p{
+    color: white;
+}
+
+#login-bar{
+    height: 56px;
+    background: linear-gradient(180deg, rgba(0,0,0,0.2), rgba(0,0,0,0));
+}
+#register-button{
+    position: relative;
+    top: 12px;
+    right: 16px;
+    float: right;
+}
+#login-button{
+    position: relative;
+    top: 12px;
+    right: 28px;
+    float: right;   
+}
+
+#logout-button{
+    position: relative;
+    top: 12px;
+    right: 16px;
+    float: right;
+}
+
+#postestate-button{
+    position: relative;
+    top: 12px;
+    right: 28px;
+    float: right;   
+}

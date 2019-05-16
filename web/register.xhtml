@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+    
+    <h:head>
+        <title>Register | Real Estate</title>
+        <link rel="shortcut icon" type="image/x-icon" href="#{resource['images/favicon.ico']}"></link>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>        
+        <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all"/>
+        <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all"></link>
+        <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet"></link>
+        <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all"/>
+        <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all"/>
+        <link href="css/main.css" rel="stylesheet" media="all"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+         
+    </h:head>
+    
+    <h:body  style="min-height: 100vh; background: linear-gradient(46deg, rgba(240,240,240,1) 0%, rgba(182,180,190,1) 63%, rgba(155,200,220,1) 100%);">
+           
+        <div class="card-heading" style="height:50px"></div>
+        
+        <table class="container" style="background-color: #EAECEE ; width: 800px; height: 480px; border-radius: 1%">
+                         
+            <td style=" width: 400px; " ><img src="resources/images/Adsız.png" alt="" style="width: 400px; height: 480px; border-radius: 1%"/></td>
+            <td  style=" width: 400px; " >
+                <h2 class="title" style="padding-left: 50px; " >Join Us!</h2>
+                <div style="height: 10px"></div>
+                <h:form>
+                    <div class="form-group" align="center">
+                        <h:inputText style="width: 300px; " p:type="fn" value="#{users.registerFirstName}" class="form-control" id="Fname"  p:placeholder="First Name"/>
+                    </div>
+
+                    <div class="form-group" align="center">
+                      <h:inputText style="width: 300px;" p:type="ln" value="#{users.registerLastName}" class="form-control" id="Lname"  p:placeholder="Last Name"/>
+                    </div>
+
+                    <div class="form-group" align="center">
+                      <h:inputText style="width: 300px;" p:type="email" value="#{users.registerEmail}" class="form-control" id="InputEmail1" p:aria-describedby="emailHelp" p:placeholder="Email"/>
+                    </div>
+
+                    <div class="form-group" align="center">
+                      <h:inputText style="width: 300px;" p:type="password" value="#{users.registerPassword}" class="form-control" id="exampleInputPassword1" p:placeholder="Password"/>
+                    </div>
+
+                    <div class="form-group" align="center">
+                        <h:inputText style="width: 300px;" p:type="phone" value="#{users.registerTelephone}" class="form-control" id="InputPhone" p:placeholder="Telephone"/>
+                        <small style="padding-right:10px" id="Help" class="form-text text-muted">We'll never share your information with anyone else.</small> 
+                        <h:outputText value="User already exists." rendered="#{users.registerError}" style=" font-family:helvetica;  font-size: 17px; color:red;" ></h:outputText>
+                    </div>
+
+                    <div class="form-group" style="padding-left: 50px">
+                        <h:commandButton   value="Register" action="#{users.register}" class="btn btn-primary"  ></h:commandButton>
+                    </div>
+
+                </h:form>
+            </td>
+        </table>
+    
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> 
+    </h:body>
+    
+</html>

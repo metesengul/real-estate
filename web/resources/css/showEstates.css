@@ -1,0 +1,29 @@
+#houses>div{
+    width: 31%;
+    display: inline-block;
+    vertical-align:top;
+    margin: 5px;
+    background: rgb(243, 243, 245);
+    border-radius: 7px;
+    padding: 25px 15px;
+    padding-bottom: 5px;
+    transition-duration: 0.2s;
+}
+
+#houses>div:hover{
+    background-color: rgb(230, 230, 230);
+}
+
+@media (max-width: 767.98px) {
+    #houses>div{
+        width: 100%;
+        display: inline-block;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    #houses>div{
+        width: 47%;
+        display: inline-block;
+    }
+}

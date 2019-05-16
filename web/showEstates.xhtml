@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    
+    <h:head>
+        <title>Search | Real Estate</title>
+        <link rel="shortcut icon" type="image/x-icon" href="#{resource['images/favicon.ico']}"></link>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>        
+        <link rel="stylesheet" href="./resources/css/showEstates.css"></link>
+    </h:head>
+    
+    <h:body>
+        <!-- Start your page under here -->
+        
+        <div class="container" style="margin-top:30px">
+            <div class="row">
+                <h:form class="col-sm-3" >
+                    <h2>Search Filter</h2>
+                    <br></br>
+
+                    <h5>Location</h5>
+                    <h:selectOneMenu class="form-control" value="#{estates.filterLocation}">
+                        <f:selectItem itemValue="Beşiktaş" itemLabel="Beşiktaş" />
+                        <f:selectItem itemValue="Avcılar" itemLabel="Avcılar" />
+                        <f:selectItem itemValue="Levent" itemLabel="Levent" />
+                    </h:selectOneMenu>
+                    <br></br>
+
+                    <h5>Size (m<sup>2</sup>)</h5>
+                    <h:selectOneMenu class="form-control" value="#{estates.filterSize}">
+                        <f:selectItem itemValue="0 - 100" itemLabel="0 - 100" />
+                        <f:selectItem itemValue="100 - 200" itemLabel="100 - 200" />
+                        <f:selectItem itemValue="200 - 300" itemLabel="200 - 300" />
+                    </h:selectOneMenu>
+                    <br></br>
+
+                    <h5>Age (years)</h5>
+                    <h:selectOneMenu class="form-control" value="#{estates.filterAge}">
+                        <f:selectItem itemValue="0 - 5" itemLabel="0 - 5" />
+                        <f:selectItem itemValue="5 - 10" itemLabel="5 - 10" />
+                        <f:selectItem itemValue="10 - 15" itemLabel="10 - 15" />
+                        <f:selectItem itemValue="15 - 1000" itemLabel="Over 15" />
+                    </h:selectOneMenu>
+                    <br></br>
+
+                    <h5>Features</h5>
+                    <h:selectManyCheckbox class="checkbox" layout="pageDirection" value="#{estates.filterFeatures}">
+                        <f:selectItem itemValue="Pool" itemLabel="&nbsp;Pool" />
+                        <f:selectItem itemValue="Backyard" itemLabel="&nbsp;Backyard" />
+                        <f:selectItem itemValue="Garage" itemLabel="&nbsp;Garage" />
+                    </h:selectManyCheckbox>
+                    <br></br>
+                    
+                    <h5>Order by</h5>
+                    <h:selectOneMenu class="form-control" value="#{estates.filterOrderBy}">
+                        <f:selectItem itemValue="Price" itemLabel="Price" />
+                        <f:selectItem itemValue="Size" itemLabel="Size" />
+                        <f:selectItem itemValue="Age" itemLabel="Age" />
+                    </h:selectOneMenu>
+                    <br></br>
+                    
+                    <h:commandButton class="btn btn-primary" value = "Search" actionListener="#{estates.search}" action="showEstates" >
+                        <f:attribute name="fromNavigation" value="false" />
+                    </h:commandButton> 
+                    <br></br>
+                    <br></br>
+                    <br></br>
+
+                    
+                </h:form>            
+                
+                <h:form id = "houses" class="col-sm">
+                    <h:outputText style="font-size: 38px;" value="No results found." rendered="#{database.estates.size() == 0}"></h:outputText>
+                    <ui:repeat value="#{database.estates}" var="estate">
+                        <div>
+                            <h:commandLink action="showEstate" actionListener = "#{showEstate.showEstate}" style="text-emphasis: none; text-decoration: none; color:black;">
+                                
+                                <f:attribute name="estateId" value="#{estate.id}" />
+                                <f:attribute name="userId" value="#{estate.userId}" />
+                                <f:attribute name="estateType" value="#{estate.type}" />
+                                
+                                <h3 style="padding-top: 10px;">#{estate.title}</h3>
+                                <hr></hr>
+                                <h5>#{estate.location}</h5>
+                                
+                                <div style="padding-top: 5px;">
+                                    <h:graphicImage width="100%" style="border-radius: 3px;" value = "#{estate.image}"/> 
+                                </div>
+                                <h5 style="padding-top: 10px;">Price: #{estate.price}$<h:outputLabel style="font-size: 16px;" value="/month" rendered="#{estates.filterSaleType == 'For Rent'}"></h:outputLabel> </h5>
+                                <p style="margin-top: 10px;">Size: #{estate.size} m<sup>2</sup>, Age: #{estate.age} years</p>
+                                <hr></hr>
+                                <h6>Features</h6>
+                                <p style="padding-bottom: 15px;">#{estate.features}</p>
+
+                            </h:commandLink>
+                        </div>
+                    </ui:repeat>
+                    
+                </h:form>
+            </div>
+        </div>
+        <br></br>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> 
+    </h:body>
+    
+</html>

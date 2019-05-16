@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Login | Real Estate</title>
+       <link rel="shortcut icon" type="image/x-icon" href="#{resource['images/favicon.ico']}"></link>
+       
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>
+      
+    </h:head>
+    <h:body style="padding-top:20px;margin:0px; min-height: 100vh; background: linear-gradient(46deg, rgba(240,240,240,1) 0%, rgba(182,180,190,1) 63%, rgba(155,200,220,1) 100%);">
+
+        
+        <div  class="container" style="width:750px; height:270px; background-color: white; border:1px black solid; border-color:#D5D8DC   ">
+            <h:form class="px-5 py-4">
+                <div class="form-group">
+                    <h:outputText value="Log in to Real-Estate" style="font-family:helvetica; font-weight:bold; font-size: 30px;"/>
+                    <div style="height: 20px;"></div>
+                    <h:inputText  value="#{users.enteredEmail}" class="form-control" id="Email1"  p:type="email" p:placeholder="Email"  style="width:300px"/>
+                    <br></br>
+                    <h:inputSecret  value="#{users.enteredPassword}" class="form-control" id="Password1" p:type="password" p:placeholder="Password"  style="width:300px;"/>
+                </div>
+                <h:commandButton p:type="submit" value="Login" class="btn btn-primary"  action="#{users.login}"/>
+            </h:form >
+        </div>
+        <div  class="container" style="width:750px;  background-color: white; border:1px black solid; border-color:#D5D8DC; background:#EBEDEF ; ">
+            <h:form>
+                <h:link value="  New around here? Sign up  "   style=" font-family:helvetica;  font-size: 17px; " class="dropdown-item" outcome="register.xhtml"/>
+                <h:link value="Forgot password?" style=" font-family:helvetica;  font-size: 17px; " class="dropdown-item" />
+                <h:outputText value="Incorrect email or password." rendered="#{users.error}" style=" font-family:helvetica;  font-size: 17px; color:red;" class="dropdown-item" ></h:outputText>
+             </h:form>
+      </div>  
+ 
+       
+     </h:body>
+</html>
+

@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    
+    <h:head>
+        <title>Real Estate</title>
+        <link rel="shortcut icon" type="image/x-icon" href="#{resource['images/favicon.ico']}"></link>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>        
+        <style>
+            .center_div{
+                margin: 0 auto;
+                max-width:850px; /* value of your choice which suits your alignment */
+                margin-top: 20px;
+                background-color: rgb(243, 243, 245);
+                padding: 40px;
+                border-radius: 10px;
+                
+            }
+        </style>
+    </h:head>
+    
+    <h:body>
+        <!-- Start your page under here -->
+        
+        <div  class="container center_div">   
+            <div >
+                <h2 class="row" style="padding: 15px; padding-top: 20px; padding-bottom: 30px;" >#{database.estate.title}</h2>
+                        
+                <h:form class="row" >
+                    <div class="col-sm-6">
+                        
+                        <h5>For Rent / For Sale</h5>
+                        <h6>#{database.estate.saleType}</h6>
+                        <br></br>
+
+                        <h5>Type</h5>
+                        <h6>#{database.estate.type}</h6>
+                        <br></br>
+
+                        <h5>Location</h5>
+                        <h6>#{database.estate.location}</h6>
+                        <br></br>
+                        
+                        <h5>Price ($)</h5>
+                        <h6>#{database.estate.price}</h6>
+                        <br></br>
+
+                        <h5>Size (m<sup>2</sup>)</h5>
+                        <h6>#{database.estate.size}</h6>
+                        <br></br>
+                        
+                        <h5>Age (years)</h5>
+                        <h6>#{database.estate.age}</h6>
+                        <br></br>
+                        
+                        <h5>Features</h5>
+                        <h6>#{database.estate.features}</h6>
+                        <br></br>
+                              
+                    </div>
+                    
+                    <div class="col-sm-6">
+                        <h5>Image</h5>
+                        <h6><h:graphicImage width="80%" style="border-radius: 3px;" value = "#{database.estate.image}"/></h6>
+                        <br></br>
+                        
+                        <h5>Name</h5>
+                        <h6>#{database.user.firstName} #{database.user.lastName}</h6>
+                        <br></br>
+                        
+                        <h5>Email</h5>
+                        <h6>#{database.user.email}</h6>
+                        <br></br>
+                        
+                        <h5>Telephone</h5>
+                        <h6>#{database.user.telephone}</h6>
+                        <br></br>
+                    </div>
+                    
+                    
+                    
+                </h:form>
+            </div>
+        </div>
+
+        
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> 
+    </h:body>
+    
+</html>
